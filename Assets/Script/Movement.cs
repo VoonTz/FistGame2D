@@ -3,6 +3,11 @@ using UnityEngine.Rendering.Universal; // Importante para usar Light2D
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriterRenderer;
+    [SerializeField] private Animator animator;
+
+    private float xPosLastFrame;
+
     [Header("Movimentação")]
     public float speed = 5f;
     public float jumpForce = 7f;
@@ -33,10 +38,43 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        FlipCharacterX();
+        Movement();
+        JumpAnimation();
+    }
+
+    private void JumpAnimation()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            animator.SetBool("IsJumping", true);
+        else
+            animator.SetBool("IsJumping", false);
+    }
+
+    private void FlipCharacterX()
+    {
+        if (transform.position.x > xPosLastFrame)
+        {
+            spriterRenderer.flipX = false;
+        }
+        else if (transform.position.x < xPosLastFrame)
+        {
+            spriterRenderer.flipX = true;
+        }
+
+        xPosLastFrame = transform.position.x;
+    }
+    private void Movement()
+    {
         if (isDashing) return;
 
         float move = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+
+        if(move != 0) 
+            animator.SetBool("IsRunning", true);
+        else
+            animator.SetBool("IsRunning", false);
 
         // Pulo
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
