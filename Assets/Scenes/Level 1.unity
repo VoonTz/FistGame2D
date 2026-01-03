@@ -4799,7 +4799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luz: {fileID: 619394801}
-  ligar: 0
+  ligar: 1
 --- !u!1 &710359489
 GameObject:
   m_ObjectHideFlags: 0

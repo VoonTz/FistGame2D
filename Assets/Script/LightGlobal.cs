@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 public class LightGlobal : MonoBehaviour
 {
     public Light2D luz;
-    public float ligar;
+    public bool ligar;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class LightGlobal : MonoBehaviour
 
     private void Update()
     {
-        if(ligar == 0)
+        if(ligar == false)
         {
             luz.intensity = 0.4f;
         }
