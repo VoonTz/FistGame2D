@@ -8,6 +8,19 @@ public class PlayerMovement : MonoBehaviour
 
     private float xPosLastFrame;
 
+    [Header("Wall")]
+    public Transform wallCheck;
+    public float wallCheckDistance = 0.2f;
+    public LayerMask groundLayer;
+
+    public float wallSlideSpeed = 2f;
+    public float wallJumpForceX = 8f;
+    public float wallJumpForceY = 7f;
+
+    private bool isTouchingWall;
+    private bool isWallSliding;
+
+
     [Header("Movimentação")]
     public float speed = 5f;
     public float jumpForce = 7f;
@@ -41,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         FlipCharacterX();
         Movement();
         JumpAnimation();
+        CheckWall();
     }
 
     private void JumpAnimation()
@@ -77,11 +91,21 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsRunning", false);
 
         // Pulo
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            isGrounded = false;
+            if (isGrounded)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                isGrounded = false;
+            }
+            else if (isWallSliding)
+            {
+                float direction = spriterRenderer.flipX ? 1 : -1;
+                rb.linearVelocity = new Vector2(direction * wallJumpForceX, wallJumpForceY);
+                isWallSliding = false;
+            }
         }
+
 
         // Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && move != 0)
@@ -122,4 +146,28 @@ public class PlayerMovement : MonoBehaviour
     {
             isGrounded = true;
     }
+
+    // Wall
+
+    private void CheckWall()
+    {
+        isTouchingWall = Physics2D.Raycast(
+            wallCheck.position,
+            spriterRenderer.flipX ? Vector2.left : Vector2.right,
+            wallCheckDistance,
+            groundLayer
+        );
+
+        // Wall Slide
+        if (isTouchingWall && !isGrounded && rb.linearVelocity.y < 0)
+        {
+            isWallSliding = true;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, -wallSlideSpeed);
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
 }

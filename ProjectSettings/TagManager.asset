@@ -42,5 +42,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: SemLuz
+    uniqueID: 2687826139
+    locked: 0
   m_RenderingLayers:
   - Default
