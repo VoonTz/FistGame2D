@@ -3,7 +3,7 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     [Header("Movimento")]
-    [SerializeField] private Vector3 destino;
+    [SerializeField] private Vector2 destino;
     [SerializeField] private float velocidade = 2f;
 
     [Header("Luz")]
@@ -24,14 +24,14 @@ public class MovingPlatform : MonoBehaviour
     {
         if (!mover) return;
 
-        transform.position = Vector3.MoveTowards(
+        transform.position = Vector2.MoveTowards(
             transform.position,
             destino,
             velocidade * Time.deltaTime
         );
 
         //  Se chegou no destino
-        if (Vector3.Distance(transform.position, destino) < 0.01f)
+        if (Vector2.Distance(transform.position, destino) < 0.01f)
         {
             mover = false;
 
