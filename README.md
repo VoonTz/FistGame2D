@@ -1,7 +1,7 @@
 🎮 Jogo 2D - Unity (Primeira Versão)
 
 Este repositório contém a primeira versão do meu jogo 2D desenvolvido na Unity.
-O objetivo deste projeto é aprendizado prático e com o tempo relativamente apertado, uma madrugada para fazer ele.
+O objetivo deste projeto é aprendizado prático e o desenvolvimento de um jogo rápido.
 
 🚀 O que eu aprendi até agora
 - Movimentação básica de personagem com C#
@@ -10,6 +10,8 @@ O objetivo deste projeto é aprendizado prático e com o tempo relativamente ape
 - Organização inicial de um projeto Unity
 - Gerenciamento de tarefas diárias
 - Definição de metas de desenvolvimento
+- Uso do Tilemap para as contruções das fases
+- Implementação de animações de movimento do Player
 
 📚 O que estou aprendendo
 - Melhor estruturação de scripts
@@ -17,6 +19,9 @@ O objetivo deste projeto é aprendizado prático e com o tempo relativamente ape
 - Detecção e tratamento de colisões
 - Organização de cenas e transições
 - Polimento da movimentação do personagem
+- Level Design das fases
+- Como implementar SFX e músicas
+- Desenhar em pixel art para substituir os assets grátis que estou utilizando por enquanto
 
 🛠️ O que preciso melhorar / próximos passos
 - Código mais limpo e reutilizável
