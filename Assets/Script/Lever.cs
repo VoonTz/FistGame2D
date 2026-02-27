@@ -42,7 +42,7 @@ public class Lever : MonoBehaviour
 
         ativada = true;
 
-        //  troca o frame aqui
+        //  troca o frame 
         if (spriteRenderer != null && spriteAtivado != null)
             spriteRenderer.sprite = spriteAtivado;
 

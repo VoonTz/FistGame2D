@@ -10,6 +10,10 @@ public class PlayerClimb : MonoBehaviour
     private Rigidbody2D rb;
     private float verticalInput;
 
+    [Header("TECLA E")]
+
+    public GameObject TeclaE;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,6 +52,7 @@ public class PlayerClimb : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isNearLadder = true;
+            TeclaE.SetActive(true);
         }
     }
 
@@ -58,6 +63,7 @@ public class PlayerClimb : MonoBehaviour
             isNearLadder = false;
             isClimbing = false;
             rb.gravityScale = 1;
+            TeclaE.SetActive(false);
         }
     }
 }
