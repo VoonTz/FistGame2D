@@ -150,15 +150,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 0.70805866
       objectReference: {fileID: 0}
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3023473
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6974
+      value: -1.11
       objectReference: {fileID: 0}
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5718,6 +5718,7 @@ GameObject:
   - component: {fileID: 609497739}
   - component: {fileID: 609497738}
   - component: {fileID: 609497737}
+  - component: {fileID: 609497740}
   m_Layer: 0
   m_Name: Door 2
   m_TagString: Untagged
@@ -5753,7 +5754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98180d8a9d2922f4396ec96c6c3bacb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destino: {x: -4, y: -1}
+  destino: {x: -4, y: -1, z: 0}
   velocidade: 2
   luzObjeto: {fileID: 893363737}
 --- !u!483693784 &609497738
@@ -5910,6 +5911,44 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &609497740
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609497735}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6008,7 +6047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luz: {fileID: 619394801}
-  ligar: 0
+  ligar: 1
 --- !u!1 &710359489
 GameObject:
   m_ObjectHideFlags: 0
@@ -6789,15 +6828,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.8
+      value: 2.755
       objectReference: {fileID: 0}
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.524956
+      value: 7.63
       objectReference: {fileID: 0}
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0721
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6922,12 +6961,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.04625
+      objectReference: {fileID: 0}
+    - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.54
+      value: 7.63
       objectReference: {fileID: 0}
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.48
+      value: -2.81
       objectReference: {fileID: 0}
     - target: {fileID: 477971674940331346, guid: be237afc11e5ee34e82e3c9fe9917fe8, type: 3}
       propertyPath: m_LocalPosition.z
