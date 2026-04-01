@@ -40,6 +40,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
 
+    AudioManager audioManager;
+
+    public void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -93,10 +100,12 @@ public class PlayerMovement : MonoBehaviour
         // Pulo
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             if (isGrounded)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 isGrounded = false;
+                audioManager.PlaySFX(audioManager.jump);
             }
             else if (isWallSliding)
             {
