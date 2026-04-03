@@ -96,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsRunning", true);
         else
             animator.SetBool("IsRunning", false);
+        
 
         // Pulo
         if (Input.GetKeyDown(KeyCode.Space))
@@ -121,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Dash(move));
         }
+       
     }
 
     private System.Collections.IEnumerator Dash(float direction)
@@ -156,18 +158,26 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
     }
 
-    // Wall
-
     private void CheckWall()
     {
-        isTouchingWall = Physics2D.Raycast(
+        RaycastHit2D hit = Physics2D.Raycast(
             wallCheck.position,
             spriterRenderer.flipX ? Vector2.left : Vector2.right,
-            wallCheckDistance,
-            groundLayer
+            wallCheckDistance
         );
 
-        // Wall Slide
+        if (hit.collider != null && hit.collider.CompareTag("Wall"))
+        {
+            isTouchingWall = true;
+        }
+        else
+        {
+            isTouchingWall = false;
+        }
+
+        float move = Input.GetAxisRaw("Horizontal");
+
+        // Wall Slide só em parede (tag Wall)
         if (isTouchingWall && !isGrounded && rb.linearVelocity.y < 0)
         {
             isWallSliding = true;
@@ -178,5 +188,4 @@ public class PlayerMovement : MonoBehaviour
             isWallSliding = false;
         }
     }
-
 }
