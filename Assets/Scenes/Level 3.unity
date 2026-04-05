@@ -6762,7 +6762,7 @@ Transform:
   m_GameObject: {fileID: 1185393874}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.113, y: 0.257, z: -0.25}
+  m_LocalPosition: {x: -0.113, y: 0.389, z: -0.25}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6991,7 +6991,7 @@ Transform:
   m_GameObject: {fileID: 1338941566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.113, y: 0.257, z: -0.25}
+  m_LocalPosition: {x: -0.113, y: 0.409, z: -0.25}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7292,6 +7292,10 @@ PrefabInstance:
       propertyPath: TeclaE
       value: 
       objectReference: {fileID: 1185393874}
+    - target: {fileID: 4700039309612076385, guid: 4fe15ac3deb68fe4a82e61eca84e08e8, type: 3}
+      propertyPath: precisaInteragir
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4700039309612076385, guid: 4fe15ac3deb68fe4a82e61eca84e08e8, type: 3}
       propertyPath: OnLeverActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

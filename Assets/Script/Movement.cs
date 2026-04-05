@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isTouchingWall;
     private bool isWallSliding;
 
+    [Header("Ladder")]
+    public float climbSpeed = 3f;
+    private bool isOnLadder;
+    private bool isClimbing;
+
 
     [Header("Movimentação")]
     public float speed = 5f;
@@ -62,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         JumpAnimation();
         CheckWall();
+        Climb();
     }
 
     private void JumpAnimation()
@@ -156,6 +162,42 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D c)
     {
             isGrounded = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            isOnLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            isOnLadder = false;
+            isClimbing = false;
+            rb.gravityScale = 1; // volta ao normal
+        }
+    }
+
+    private void Climb()
+    {
+        if (!isOnLadder) return;
+
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        if (vertical != 0)
+        {
+            isClimbing = true;
+            rb.gravityScale = 0;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, vertical * climbSpeed);
+        }
+        else if (isClimbing)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+        }
     }
 
     private void CheckWall()
