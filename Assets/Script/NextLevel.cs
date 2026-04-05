@@ -23,6 +23,8 @@ public class NextLevel : MonoBehaviour
         }
         else
         {
+            SceneManager.LoadScene("Level 1");
+
             Debug.Log("Última fase concluída!");
         }
     }
